@@ -7,7 +7,7 @@ router.get('/', function (req, res, next) {
 });
 
 router.post('/panic', hasRole(['teller']), function (req, res, next) {
-  res.send("We've called the police!");
+  res.json({ message: "We've called the police!" });
 });
 
 router.get('/make-change', hasRole(['customer', 'teller']), function (req, res, next) {
