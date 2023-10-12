@@ -53,7 +53,7 @@ The app is now serving two api endpoints
 You can login with a user preconfigured during Kickstart, `teller@example.com` with the password of `password` and `applicationId` by calling:
 
 ```sh
-curl --location 'https://local.fusionauth.io/api/login' \
+curl --location 'http://localhost:9011/api/login' \
 --header 'Authorization: this_really_should_be_a_long_random_alphanumeric_value_but_this_still_works' \
 --header 'Content-Type: application/json' \
 --data-raw '{
