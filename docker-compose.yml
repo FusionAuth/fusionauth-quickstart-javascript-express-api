@@ -82,6 +82,7 @@ services:
       - "3000:3000"
     environment:
       - NODE_ENV=development
+      - FUSIONAUTH_URL=http://fusionauth:9011
     volumes:
       - ./complete-application:/usr/src/app
       - /usr/src/app/node_modules
@@ -89,6 +90,7 @@ services:
       - fusionauth
     networks:
       - db_net
+      - search_net
     restart: unless-stopped
 
 networks:

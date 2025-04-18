@@ -25,7 +25,7 @@
       "url": "/api/tenant/#{defaultTenantId}",
       "body": {
         "tenant": {
-          "issuer": "http://localhost:9011"
+          "issuer": "http://fusionauth:9011"
         }
       }
     },
