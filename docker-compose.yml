@@ -74,6 +74,23 @@ services:
       - fusionauth_config:/usr/local/fusionauth/config
       - ./kickstart:/usr/local/fusionauth/kickstart
 
+  api:
+    build:
+      context: ./complete-application
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./complete-application:/usr/src/app
+      - /usr/src/app/node_modules
+    depends_on:
+      - fusionauth
+    networks:
+      - db_net
+    restart: unless-stopped
+
 networks:
   db_net:
     driver: bridge
