@@ -5,7 +5,7 @@ function hasRole(roles) {
     const decodedToken = jose.decodeJwt(req.verifiedToken);
     if (roles.some((role) => decodedToken.roles.includes(role))) return next();
     res.status(403);
-    res.send({ error: `You do not have a role with permissions to do this.` });
+    res.send({ error: "You do not have a role with permissions to do this." });
   }
 }
 
