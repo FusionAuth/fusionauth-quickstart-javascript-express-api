@@ -14,8 +14,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //tag::verifyToken[]
-const verifyJWT = require('./services/verifyJWT');
-app.use(verifyJWT);
+// const verifyJWT = require('./services/verifyJWT');
+// app.use(verifyJWT);
 //end::verifyToken[]
 
 app.use('/', indexRouter);

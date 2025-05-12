@@ -6,11 +6,11 @@ router.get('/', (req, res, next) => {
   res.render('index', { title: 'Express' });
 });
 
-router.post('/panic', (req, res, next) => {
+router.post('/panic', hasRole(['teller']), (req, res, next) => {
   res.json({ message: "We've called the police!" });
 });
 
-router.get('/make-change', (req, res, next) => {
+router.get('/make-change', hasRole(['customer', 'teller']), (req, res, next) => {
   const amount = req.query.total;
   const result = { total: 0, nickels: 0, pennies: 0};
   result.total = Math.trunc(Number.parseFloat(amount)*100)/100;
