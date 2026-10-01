@@ -7,7 +7,8 @@ const jwksClient = jose.createRemoteJWKSet(
 
 const verifyJWT = async (req, res, next) => {
   const authHeader = req.headers.authorization;
-  const tokenFromHeader = authHeader ? authHeader.split(' ')[1] : null;
+  const bearerMatch = authHeader ? authHeader.match(/^Bearer\s+(\S+)$/i) : null;
+  const tokenFromHeader = bearerMatch ? bearerMatch[1] : null;
   const access_token = req.cookies['app.at'] || tokenFromHeader;
   if (!access_token) {
     res.status(401);
